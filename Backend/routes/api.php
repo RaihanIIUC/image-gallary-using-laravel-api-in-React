@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::group(['middleware' => 'cors'], function () {
-    Route::resource('gallery', ImageController::class);
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
+Route::post('upload', [ImageController::class, 'store']);
+Route::get('list', [ImageController::class, 'index']);
+Route::get('delete/{id}', [ImageController::class, 'destroy']);
