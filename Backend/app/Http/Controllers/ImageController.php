@@ -41,8 +41,13 @@ class ImageController extends Controller
      */
     public function store(StoreImageRequest $request, Image $image)
     {
-        
-         
+
+        // if (isset($request->validator) && $request->validator->fails()) {
+        //     return redirect()->route('customer.dashboard', '#account')->withErrors($request->validator, 'forwarding')->withInput()->with([
+        //         'status' => 'There was a problem saving. Please try again!',
+        //         'alert' => 'danger',
+        //     ]);
+        // }
         // add validation to it
 
         $fielnames = $request->input('name');
